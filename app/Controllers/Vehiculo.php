@@ -12,7 +12,6 @@ class Vehiculo extends BaseController
     {
         $model = new VehiculoModel();
         return $this->getResponse([
-            'message'=>'Cars encontrados',
             'cars'=>$model->findAll()
         ]);
     }

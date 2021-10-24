@@ -1,13 +1,15 @@
 <?php
-
+ 
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
+
 class Auth extends BaseController
 {
+   
     public function register()
     {
         $rules = [
@@ -30,6 +32,8 @@ class Auth extends BaseController
 
     public function login()
     {
+      
+        
         $rules = [
             'email' => 'required|min_length[6]|max_length[50]|valid_email',
             'password' => 'required|min_length[8]|max_length[255]|validateUser[email, password]'
@@ -37,7 +41,8 @@ class Auth extends BaseController
 
         $errors = [
             'password' => [
-                'validateUser' => 'Invalid login credentials provided'
+                'validateUser' => 'Invalid login credentials provided',
+
             ]
         ];
 
@@ -60,7 +65,7 @@ class Auth extends BaseController
             helper('jwt');
 
             return $this->getResponse([
-                'message' => 'User authenticated successfully',
+                'ok'=>true,
                 'user' => $user,
                 'access_token' => getSignedJWTForUser($email)
             ]);

@@ -64,9 +64,7 @@ class Filters extends BaseConfig
         'auth'=>[
             'before'=>[
                 'client/*',
-                'client',
-                'vehiculo/*',
-                'vehiculo'
+                'client'
             ]
         ]
     ];

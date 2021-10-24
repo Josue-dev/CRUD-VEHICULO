@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
@@ -10,7 +11,6 @@ use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Validation\Exceptions\ValidationException;
 use Config\Services;
 use Psr\Log\LoggerInterface;
-
 /**
  * Class BaseController
  *
@@ -23,13 +23,14 @@ use Psr\Log\LoggerInterface;
  */
 class BaseController extends Controller
 {
+   
     /**
      * Instance of the main Request object.
      *
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
-
+    
     /**
      * An array of helpers to be loaded automatically upon
      * class instantiation. These helpers will be available
@@ -52,6 +53,7 @@ class BaseController extends Controller
         // E.g.: $this->session = \Config\Services::session();
     }
     public function getResponse(array $responseBody, int $code=ResponseInterface::HTTP_OK){
+     
         return $this->response->setStatusCode($code)->setJSON($responseBody);
 
     }
